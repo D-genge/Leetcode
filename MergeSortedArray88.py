@@ -15,14 +15,11 @@ class Solution:
                 nums1[curr] = nums2[m]
                 m -= 1
                 curr -= 1
-                continue 
-            if m < 0:
-                return
-            if nums1[n] >= nums2[m]:
+            elif nums1[n] >= nums2[m]:
                 nums1[curr] = nums1[n]
                 curr -= 1
                 n -= 1
-                continue
+
             if nums2[m] > nums1[n]:
                 nums1[curr] = nums2[m]
                 curr -= 1
