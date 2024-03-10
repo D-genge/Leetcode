@@ -3,30 +3,29 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
+        n, m = n - 1, m - 1
+        curr = n - m - 1
         if not nums1 or not nums2:
             return
         if len(nums1) == 1:
             nums1[0] = nums2[0]
             return
-        curr = len(nums1) - 1
-        n2 = len(nums2) - 1
-        n1 = curr - n2 - 1
-        while n1 >= 0 or n2 >= 0:
-            if n1 < 0:
-                nums1[curr] = nums2[n2]
-                n2 -= 1
+        while m >= 0 or n >= 0:
+            if n < 0:
+                nums1[curr] = nums2[m]
+                m -= 1
                 curr -= 1
                 continue 
-            if n2 < 0:
+            if m < 0:
                 return
-            if nums1[n1] >= nums2[n2]:
-                nums1[curr] = nums1[n1]
+            if nums1[n] >= nums2[m]:
+                nums1[curr] = nums1[n]
                 curr -= 1
-                n1 -= 1
+                n -= 1
                 continue
-            if nums2[n2] > nums1[n1]:
-                nums1[curr] = nums2[n2]
+            if nums2[m] > nums1[n]:
+                nums1[curr] = nums2[m]
                 curr -= 1
-                n2 -= 1
+                m -= 1
                 continue
             
